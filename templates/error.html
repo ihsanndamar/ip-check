@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+
+  <style>
+    table {
+        border-collapse: collapse;
+        background-color: #fff;
+      }
+      table tr,
+      table td,
+      table th {
+        border: 1px solid #bbb;
+        padding: 10px 20px;
+      }
+      table th {
+        background-color: #d1084b;
+        color: #fff;
+        font-weight: 600;
+      }
+
+            .container {
+  display: flex;
+  gap: 0.625%;
+}
+
+a {
+  flex: 1;
+  text-decoration: none;
+  outline-color: transparent;
+  text-align: center;
+  line-height: 3;
+  color: black;
+}
+
+a:link,
+a:visited,
+a:focus {
+  background: #d1084b;
+  color: black;
+}
+
+a:hover {
+  background: orange;
+}
+
+a:active {
+  background: darkred;
+  color: white;
+}
+
+</style>
+
+</head>
+<body>
+    <nav class="container">
+      <a href="stats">Statistics</a>
+        <a href="/">IP Checking</a>
+        <a href="about">About</a>
+
+    </nav>
+<H1>Error</H1>
+
+<a>
+    {{ message }}
+</a>
+
+
+</body>
+</html>

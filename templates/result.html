@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+    table {
+        border-collapse: collapse;
+        background-color: #fff;
+      }
+      table tr,
+      table td,
+      table th {
+        border: 1px solid #bbb;
+        padding: 10px 20px;
+      }
+      table th {
+        background-color: #d1084b;
+        color: #fff;
+        font-weight: 600;
+      }
+
+            .container {
+  display: flex;
+  gap: 0.625%;
+}
+
+a {
+  flex: 1;
+  text-decoration: none;
+  outline-color: transparent;
+  text-align: center;
+  line-height: 3;
+  color: black;
+}
+
+a:link,
+a:visited,
+a:focus {
+  background: #d1084b;
+  color: black;
+}
+
+a:hover {
+  background: orange;
+}
+
+a:active {
+  background: darkred;
+  color: white;
+}
+    </style>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+</head>
+
+
+<body>
+    <nav class="container">
+      <a href="stats">Statistics</a>
+        <a href="/">IP Checking</a>
+        <a href="about">About</a>
+
+    </nav>
+<H1>Results</H1>
+
+
+<H2>Results</H2>
+<table>
+    <tr>
+        <th>ip</th>
+        <th>Type</th>
+        <th>domain</th>
+        <th>ASN</th>
+        <th>country</th>
+        <th>Is Malicious</th>
+    </tr>
+
+    <tr>
+    <td>{{data.ip}}</td>
+    <td>{{data.Type}}</td>
+    <td>{{data.Domain}}</td>
+    <td>{{data.ASN}}</td>
+    <td>{{data.Country}}</td>
+    <td>{{data.IsMalicious}}</td>
+    </tr>
+
+</table>
+
+
+{% if data.EnumerationResult%}
+<H2>Enumeration Results</H2>
+<table>
+    <tr>
+        <th>record_type</th>
+        <th>rdata</th>
+    </tr>
+    {% for item in data.EnumerationResult %}
+    <tr>
+    <td>{{item.record_type}}</td>
+    <td>{{item.rdata}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+
+</body>
+
+
+</html>
