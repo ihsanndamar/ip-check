@@ -51,6 +51,8 @@ def result():
 
 @app.route('/stats', methods=['GET'])
 def stats():
+    if checkings == []:
+        return render_template('error.html', message="There is no checking to show")
     isMaliciousCount = len([elem for elem in checkings if elem["IsMaliciousBool"] == "True"])
     isNotMaliciousCount = len([elem for elem in checkings if elem["IsMaliciousBool"] == "False"])
     return render_template('stats.html', data=checkings, isMallwareCount=isMaliciousCount, isNotMallwareCount=isNotMaliciousCount)
