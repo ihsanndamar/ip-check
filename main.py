@@ -34,8 +34,9 @@ def result():
 
 
         checkings.append({"ip": checking.ip,
-                          "IsMalicious": checking.IsMalicious.__str__(),
-                          "EnumerationResult": checking.EnumerationResult if len(checking.EnumerationResult) > 0 else "none",
+                          "IsMalicious": "Zararlı" if checking.IsMalicious == True else "Zararlı Değil",
+                          "IsMaliciousBool": checking.IsMalicious.__str__(),
+                          "EnumerationResult": checking.EnumerationResult,
                           "Country": checking.country if checking.country != "" else "none",
                             "ASN": checking.asn if checking.asn != "" else "none",
                             "Type": checking.type if checking.type != "" else "none",
@@ -50,8 +51,8 @@ def result():
 
 @app.route('/stats', methods=['GET'])
 def stats():
-    isMaliciousCount = len([elem for elem in checkings if elem["IsMalicious"] == "True"])
-    isNotMaliciousCount = len([elem for elem in checkings if elem["IsMalicious"] == "False"])
+    isMaliciousCount = len([elem for elem in checkings if elem["IsMaliciousBool"] == "True"])
+    isNotMaliciousCount = len([elem for elem in checkings if elem["IsMaliciousBool"] == "False"])
     return render_template('stats.html', data=checkings, isMallwareCount=isMaliciousCount, isNotMallwareCount=isNotMaliciousCount)
 
 

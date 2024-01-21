@@ -66,7 +66,7 @@ a:active {
 
 
 <H2>Results</H2>
-<table>
+<table id="results">
     <tr>
         <th>ip</th>
         <th>Type</th>
@@ -82,10 +82,22 @@ a:active {
     <td>{{data.Domain}}</td>
     <td>{{data.ASN}}</td>
     <td>{{data.Country}}</td>
-    <td>{{data.IsMalicious}}</td>
+    <td id="isMalicious" >{{data.IsMalicious}}</td>
     </tr>
 
 </table>
+
+<script>
+var isMalicious = "{{data.IsMaliciousBool}}";
+console.log(isMalicious);
+    if (isMalicious == "True") {
+        document.getElementById("isMalicious").style.backgroundColor = "red";
+    }
+    else {
+        document.getElementById("isMalicious").style.backgroundColor = "green";
+    }
+
+</script>
 
 
 {% if data.EnumerationResult%}
